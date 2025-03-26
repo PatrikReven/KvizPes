@@ -1,0 +1,286 @@
+/* Osnovni stil za telo strani */
+body {
+  font-family: "Orbitron", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #263238;
+  background-image: linear-gradient(45deg, #1f42a5, #1ba4ce);
+  color: white;
+  overflow: hidden;
+}
+
+/* Kontejner za celotno vsebino - zmanjšan */
+.container {
+  height: 600px;
+  width: 800px;
+  position: relative;
+  text-align: center;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+  animation: fadeIn 2s ease-out;
+}
+
+/* Logotip - manjši */
+.logo {
+  width: 150px;
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-out;
+}
+
+/* Vprašanje - manjša pisava */
+#question {
+  font-weight: bold;
+  font-size: 28px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  animation: fadeIn 2s ease-out;
+}
+
+/* Slog za možnosti odgovora (grid) */
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin: 15px auto;
+  width: 80%;
+}
+
+/* Gumbi za odgovore - manjši */
+.option {
+  font-size: 18px;
+  font-weight: bold;
+  background: linear-gradient(45deg, #7566bb, #1c29e2);
+  color: white;
+  border-radius: 12px;
+  border: 2px yellow solid;
+  padding: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.option:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.option.selected {
+  background: #ffeb3b;
+  color: black;
+}
+
+.option.correct {
+  background: linear-gradient(45deg, #388e3c, #00c853);
+  color: white;
+  animation: pulse 0.5s ease-in-out;
+}
+
+.option.wrong {
+  background: linear-gradient(45deg, #f44336, #d32f2f);
+  color: white;
+  animation: shake 0.4s ease-in-out;
+}
+
+/* Točke */
+#pointsDisplay {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #ffeb3b;
+}
+
+/* Gumb za naprej - nekoliko manjši */
+#next-btn {
+  display: none;
+  margin-top: 15px;
+  margin-left: 0;
+  text-align: left;
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#next-btn:hover {
+  background-color: #45a049;
+}
+
+/* Stolpec za vprašanja in tracker */
+.question-column {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+  width: 120px;
+  animation: slideInColumn 1s ease-out;
+  height: 100vh;
+}
+
+.question-column h3 {
+  font-size: 18px;
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+/* Tracker container z 12 krogci */
+.tracker-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+}
+
+.tracker-item {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: gray;
+  opacity: 0.5;
+}
+
+/* Ozadje krogca za pravilen odgovor */
+.tracker-item.correct {
+  background: #00c853;
+  opacity: 1;
+}
+
+/* Ozadje krogca za napačen odgovor */
+.tracker-item.wrong {
+  background: #f44336;
+  opacity: 1;
+}
+
+/* Kontejner za Milijonar točke (če želiš ohraniti obstoječo funkcionalnost) */
+.miljonar {
+  position: absolute;
+  top: 20px;
+  right: 160px; /* postavi ga levo od stolpca z vprašanji */
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  width: 120px;
+  text-align: center;
+  transition: background 0.3s ease;
+}
+
+.miljonar.correct {
+  background: #00c853;
+  color: white;
+}
+
+.miljonar h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.miljonar-points {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Timer */
+.timer-container {
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.timer-display {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+
+.button-container button {
+  font-size: 1em;
+  padding: 8px 16px;
+  margin: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.button-container button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.button-container button:hover {
+  background-color: #45a049;
+}
+.correct-answer {
+  font-size: 16px;
+  color: green;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Gumbi za pomoč - manjši */
+.help-btn button {
+  font-size: 16px;
+  padding: 8px 16px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  background: #00bcd4;
+  transition: 0.3s ease;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.help-btn button:hover {
+  background: #0097a7;
+}
+
+.help-btn button.disabled {
+  background: #b0bec5;
+  cursor: not-allowed;
+}
+
+/* Animacije */
+@keyframes pulse {
+  50% { transform: scale(1.1); }
+}
+
+@keyframes shake {
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.fadeIn {
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes slideInColumn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

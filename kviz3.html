@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KvizPes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <img src="slike/logo.png" alt="Pes" class="logo">
+  
+    <div id="question" class="question"></div>
+  
+    <div class="options" id="options"></div>
+  
+    <div id="result" class="result"></div>
+  
+    <div id="sigma-div">
+      <button id="next-btn" class="next-btn">Naprej</button>
+    </div>
+    
+    <div id="pointsDisplay" class="pointsDisplay">Trenutne točke: 0</div>
+  
+    <div id="fiftyfifty" class="help-btn">
+      <button id="fifty-fifty-btn" class="help-btn">50/50</button>
+    </div>
+  
+    <div id="vote" class="help-btn">
+      <button id="timer-btn" class="help-btn">Glas ljudstva</button>
+    </div>
+  
+    <div id="vote2" class="help-btn">
+      <button id="timer-btn2" class="help-btn">Pomoč voditelja</button>
+    </div>
+  
+    <div class="timer-container">
+      <div id="timer" class="timer-display">01:00</div>
+      <div class="button-container">
+        <button id="start" onclick="startTimer()">Start</button>
+        <button id="stop" onclick="stopTimer()">Stop</button>
+        <button id="reset" onclick="resetTimer()">Reset</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Stolpec z vprašanji in trackerjem -->
+  <div id="question-column" class="question-column">
+    <h3>5 Vprašanj</h3>
+    <div id="tracker-container" class="tracker-container">
+      <!-- Tukaj se dinamično generirajo krogci -->
+    </div>
+  </div>
+  
+  <!-- Kontejner za Milijonar točke (če želiš ohraniti obstoječo funkcionalnost) -->
+  <div id="miljonar" class="miljonar">
+    <h3>PesTočke</h3>
+    <div id="miljonar-points" class="miljonar-points">0</div>
+  </div>
+  
+  <script src="kviz3.js"></script>
+</body>
+</html>
